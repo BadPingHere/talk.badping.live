@@ -1,3 +1,3 @@
 # talk.badping.live
 overly complicated talking
-# WORK IN PROGRESS
+# ON HOLD (because its really pissing me off rn)
