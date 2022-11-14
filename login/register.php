@@ -7,7 +7,7 @@ $username_err = $email_err = $password_err = "";
 $username = $email = $password = "";
 
 # Processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
   # Validate username
   if (empty(trim($_POST["username"]))) {
     $username_err = "Please enter a username.";
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $username_err = "Username can only contain letters, numbers and symbols like '@', '_', or '-'.";
     } else {
       # Prepare a select statement
-      $sql = "SELECT id FROM userst WHERE username = ?";
+      $sql = "SELECT id FROM users WHERE username = ?";
 
       if ($stmt = mysqli_prepare($link, $sql)) {
         # Bind variables to the statement as parameters
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $email_err = "Please enter a valid email address.";
     } else {
       # Prepare a select statement
-      $sql = "SELECT id FROM userst WHERE email = ?";
+      $sql = "SELECT id FROM users WHERE email = ?";
 
       if ($stmt = mysqli_prepare($link, $sql)) {
         # Bind variables to the statement as parameters
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   # Check input errors before inserting data into database
   if (empty($username_err) && empty($email_err) && empty($password_err)) {
     # Prepare an insert statement
-    $sql = "INSERT INTO userst(username, email, password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
 
     if ($stmt = mysqli_prepare($link, $sql)) {
       # Bind varibales to the prepared statement as parameters

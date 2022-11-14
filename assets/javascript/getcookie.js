@@ -1,1 +1,0 @@
-Object.fromEntries(document.cookie.split('; ').map(c => c.split('=')))
